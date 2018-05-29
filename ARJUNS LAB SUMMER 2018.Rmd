@@ -1,0 +1,52 @@
+---
+title: 'JESUS VAZQUEZ: ARJUN''S SUMMER 2018 LAB'
+output:
+  html_notebook: default
+  pdf_document: default
+---
+```{R}
+echo "# lab" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/jvazquez2/lab.git
+git push -u origin master
+```
+#Week 1
+## Cosine Similarity vs. Pearson Correlation
+
+__The question is to understand the similarities and differences between Cosine Similarity and Pearson Correlation.__
+
+The Cosine similarity has a range of 0 to 1, if both of the vectors are positive but it can take negative values if the one of the vectors has negative numbers.  The Cosine similarity will give you the cosine angle between the two vectors. The Pearson correlation will you an index of how closely associated both vectors are to each other. We might often think of a Cosine Similarity as similar to a Pearson Correlation Coefficient. The formulas of both methods are as follows:
+
+_COSINE CORRELATION_
+![COSINE CORRELATION](/Volumes/MSUENG/1.jpg)
+_PEARSON CORRELATION_
+![PEARSON CORRELATION](/Volumes/MSUENG/2.jpg)
+
+The Cosine Similarity coefficient is calculating by dividing the sum of the products of both vectors by product of the square-roots of the sum of both vectors squared. In contrast, the correlation coefficient is calculated by dividing the covariance of both vectors by the square-roots of the sums of their departures from the mean squared. Both of these calculations are fairly similar and will lead to similar results. 
+
+##ROC Curve vs. PRC Curve 
+
+The ROC curve can help us determine how well of a prediction a model has. In our NPL project we have decided to use the ROC curve to better understand how well of a precision our ML model has on predicting the genes that are associated with the condition (Alzheimer). The x-axis in out ROC curve are the false positives (1-Specificity) and the y-axis is the Sensitivity. The specificity is a measure of how often the model says that you have the condition (or the event of interest) given that the condition is present. The sensitivity is a measure on how often the model says that you don’t have condition given that you do not have the condition. In practice, we want both sensitivity and specificity to be high. When the condition or the event is very rare then the ROC is not the best. The precision recall curve is best used for very rare conditions or events. The x-axis for the PR curve is the recall and the y-axis is the precision. 
+
+Given the only a small about of genes/words are associated with the condition we might want to study the PR curve instead of the ROC curve.
+
+## Machine Learning – Annotated Bibliography 
+_Natural Language Processing, Neural Networks, Random Forest, Gene Ontology and more_
+
+__word2vec Parameter Learning Explained__
+
+- Xin Rong
+
+The purpose of this paper was to detail the purpose and use of word2vec. This paper explained topics in neuronetworks, how the input vector is coded, the weights, cost function, hidden layers, and learning rate in respect to NLP. Other topic covered in this paper are Continuous Bag of Words (CBOW) and Skip-Gram Model. It was also made clear that the CBOW model uses a series of words to predict the bets matched word. In Skip-Gram you use the word of interest to find the context words.
+
+__Word and sentence embedding tools to measure semantic similarity of Gene Ontology terms by their definitions___
+
+- Dat Duong 1, Wasi Uddin Ahmad, Eleazar Eskin, Kai-Wei Chang, Jingyi Jessica Li
+
+The Gene Ontology (GO) database is an similar to a biological dictionary that describes biological functions of genes. The GO contains information about the cellular components(CC), molecular functions(MF), and biological processes(BP) which are also their own trees. Very specific words to the subject are very close to the root whereas more generic terms are found  to be closer at the leaves. The GO terms are structured and organized in a tree structure. This means that cosine similarities between two terms will depent on the location of the genes and not by their meaning. This research paper aimed at identifying similarity scores between genes but based on their definitions rather than location using __Natural Language Processing (NPL)__. The first method this paper used to get the similarity between two words was using word embeddings and in the second approach this paper considered the order of words to identify similiarities between sentences. The first experiment is validated by looking at the abiity of the model to match protein-protein networks and the second method is validated by identifying common genes in from human, mouse, and flyes. 
+
+-> Model validation using the AUC of the ROC curve. The Hanley-McNeil p-value for comparing AUCs was used to identify which model had the best prediction power.
+
+#Week 2
